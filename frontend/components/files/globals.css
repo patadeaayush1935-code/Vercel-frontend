@@ -1,0 +1,112 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+
+:root {
+  --navy: #1b2141;
+  --saffron: #e8722a;
+  --cream: #faf8f5;
+  --slate: #6b7280;
+  --background: #ffffff;
+  --foreground: #1b2141;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-navy: var(--navy);
+  --color-saffron: var(--saffron);
+  --color-cream: var(--cream);
+  --color-slate: var(--slate);
+  --font-display: "Cormorant Garamond", serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Utility classes for Tailwind v4 */
+.bg-navy { background-color: var(--navy); }
+.bg-saffron { background-color: var(--saffron); }
+.bg-cream { background-color: var(--cream); }
+.text-navy { color: var(--navy); }
+.text-saffron { color: var(--saffron); }
+.text-slate { color: var(--slate); }
+.border-navy { border-color: var(--navy); }
+.border-saffron { border-color: var(--saffron); }
+.font-display { font-family: "Cormorant Garamond", serif; }
+.font-body { font-family: "Plus Jakarta Sans", sans-serif; }
+
+/* Hover states */
+.hover\:bg-navy:hover { background-color: var(--navy); }
+.hover\:bg-saffron:hover { background-color: var(--saffron); }
+.hover\:text-navy:hover { color: var(--navy); }
+.hover\:text-saffron:hover { color: var(--saffron); }
+.hover\:text-white:hover { color: #ffffff; }
+.hover\:border-navy:hover { border-color: var(--navy); }
+.hover\:border-saffron:hover { border-color: var(--saffron); }
+.hover\:border-white:hover { border-color: #ffffff; }
+
+/* Group hover */
+.group:hover .group-hover\:bg-saffron { background-color: var(--saffron); }
+.group:hover .group-hover\:bg-white { background-color: #ffffff; }
+.group:hover .group-hover\:bg-navy { background-color: var(--navy); }
+.group:hover .group-hover\:text-white { color: #ffffff; }
+.group:hover .group-hover\:text-white\/60 { color: rgba(255,255,255,0.6); }
+.group:hover .group-hover\:translate-x-1 { transform: translateX(0.25rem); }
+
+/* Custom animations */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.03); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--navy);
+  border-radius: 2px;
+}
